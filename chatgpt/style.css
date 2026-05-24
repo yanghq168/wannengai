@@ -729,12 +729,19 @@
   .contact-action {
     width: min(100%, 310px);
     margin: 0 auto;
-    grid-template-columns: 54px minmax(0, 1fr);
+    grid-template-columns: 64px 1fr;
+    column-gap: 14px;
     justify-content: center;
     text-align: left;
   }
 
   .contact-action span {
+    min-width: 0;
     text-align: right;
+  }
+
+  .contact-action b {
+    width: 170px;
+    text-align: left;
   }
 }
