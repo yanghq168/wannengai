@@ -440,6 +440,16 @@ h1 {
   content: "";
 }
 
+.text-link {
+  border-bottom: 1px solid rgba(124, 255, 77, 0.58);
+  color: #f9fff4;
+  text-shadow: 0 0 14px rgba(124, 255, 77, 0.36);
+}
+
+.text-link:hover {
+  color: var(--green);
+}
+
 .ai-console {
   min-height: 300px;
   position: relative;
