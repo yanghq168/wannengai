@@ -801,6 +801,10 @@ h1 {
     inset 0 1px 16px rgba(255, 255, 255, 0.16),
     0 0 28px rgba(68, 255, 55, 0.28);
   text-align: left;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  appearance: none;
 }
 
 .contact-pill span {
@@ -816,6 +820,36 @@ h1 {
   font-weight: 950;
   overflow-wrap: anywhere;
   text-shadow: 0 0 18px rgba(124, 255, 77, 0.5);
+}
+
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 34px;
+  z-index: 50;
+  max-width: min(520px, calc(100% - 28px));
+  padding: 14px 22px;
+  border: 1px solid rgba(180, 255, 137, 0.74);
+  border-radius: 999px;
+  background: rgba(4, 32, 15, 0.94);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 850;
+  text-align: center;
+  box-shadow:
+    inset 0 1px 14px rgba(255, 255, 255, 0.18),
+    0 0 34px rgba(75, 255, 69, 0.34);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 16px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.copy-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 @media (max-width: 900px) {

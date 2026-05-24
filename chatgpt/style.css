@@ -63,16 +63,102 @@
 }
 
 .plus-brand {
-  width: min(380px, 62vw);
-  height: clamp(78px, 12vw, 132px);
-  overflow: hidden;
   display: flex;
   align-items: center;
+  gap: 16px;
+  min-width: 0;
 }
 
-.plus-brand img {
-  width: 100%;
-  transform: scale(1.18);
+.plus-brand-mark {
+  width: clamp(70px, 9vw, 116px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(206, 250, 255, 0.82);
+  border-radius: 28% 36% 30% 40%;
+  background:
+    radial-gradient(circle at 58% 34%, rgba(255, 255, 255, 0.88), transparent 10%),
+    linear-gradient(135deg, #30a2ff 0%, #19e2d4 58%, #086ac6 100%);
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.42),
+    0 0 32px rgba(35, 227, 230, 0.5),
+    0 12px 22px rgba(5, 18, 81, 0.28);
+  transform: rotate(-8deg);
+  position: relative;
+}
+
+.plus-brand-mark::before,
+.plus-brand-mark::after {
+  position: absolute;
+  width: 24px;
+  height: 3px;
+  border-radius: 999px;
+  background: #77f8ff;
+  box-shadow: 0 0 14px rgba(119, 248, 255, 0.82);
+  content: "";
+}
+
+.plus-brand-mark::before {
+  left: -16px;
+  top: 60%;
+}
+
+.plus-brand-mark::after {
+  right: -16px;
+  top: 32%;
+}
+
+.plus-brand-mark span {
+  width: 58%;
+  aspect-ratio: 1;
+  display: block;
+  border-radius: 26% 42% 30% 45%;
+  background: rgba(5, 18, 81, 0.82);
+  clip-path: polygon(16% 10%, 84% 50%, 16% 90%);
+  position: relative;
+}
+
+.plus-brand-mark span::before,
+.plus-brand-mark span::after {
+  position: absolute;
+  top: 41%;
+  width: 7px;
+  height: 21px;
+  border-radius: 8px;
+  background: #ecffff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.92);
+  content: "";
+}
+
+.plus-brand-mark span::before {
+  left: 30%;
+}
+
+.plus-brand-mark span::after {
+  left: 50%;
+}
+
+.plus-brand-text {
+  display: grid;
+  gap: 8px;
+}
+
+.plus-brand-text strong {
+  color: #fff;
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: 0.92;
+  font-weight: 950;
+  text-shadow:
+    0 4px 0 rgba(0, 43, 144, 0.78),
+    0 0 24px rgba(255, 255, 255, 0.46);
+}
+
+.plus-brand-text em {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: normal;
+  font-size: clamp(16px, 2.2vw, 28px);
+  font-weight: 850;
+  letter-spacing: 6px;
 }
 
 .back-home {
@@ -519,10 +605,17 @@
 }
 
 .plus-contact a,
-.plus-contact span {
+.plus-contact button {
+  border: 0;
+  background: transparent;
+  color: inherit;
   font-size: clamp(18px, 2.4vw, 28px);
+  font-family: inherit;
   font-weight: 950;
   white-space: nowrap;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
 }
 
 @media (max-width: 980px) {
@@ -556,8 +649,20 @@
   }
 
   .plus-brand {
-    width: 200px;
-    height: 74px;
+    gap: 10px;
+  }
+
+  .plus-brand-mark {
+    width: 54px;
+  }
+
+  .plus-brand-text strong {
+    font-size: 30px;
+  }
+
+  .plus-brand-text em {
+    font-size: 12px;
+    letter-spacing: 2px;
   }
 
   .back-home {
@@ -603,5 +708,9 @@
     text-align: center;
     color: #fff;
     background: linear-gradient(180deg, #126dff, #079fc6);
+  }
+
+  .plus-contact button {
+    text-align: center;
   }
 }
