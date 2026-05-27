@@ -79,6 +79,21 @@ img {
   width: min(1360px, calc(100% - 32px));
   margin: 0 auto;
   padding-bottom: 40px;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.video-page.is-page-leaving {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.video-page.is-page-entering {
+  opacity: 0;
+  transform: translateY(12px);
 }
 
 .site-header {
