@@ -76,7 +76,7 @@ img {
 }
 
 .video-page {
-  width: min(1320px, calc(100% - 32px));
+  width: min(1360px, calc(100% - 32px));
   margin: 0 auto;
   padding-bottom: 40px;
 }
@@ -865,7 +865,7 @@ p {
 
 @media (max-width: 680px) {
   .video-page {
-    width: min(100% - 20px, 1320px);
+    width: min(100% - 20px, 1360px);
   }
 
   .site-header {
