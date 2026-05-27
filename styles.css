@@ -822,6 +822,22 @@ h1 {
   text-shadow: 0 0 18px rgba(124, 255, 77, 0.5);
 }
 
+.site-record {
+  padding: 18px 0 0;
+  text-align: center;
+}
+
+.site-record a {
+  color: rgba(225, 246, 219, 0.78);
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.site-record a:hover {
+  color: #fff;
+  text-shadow: 0 0 14px rgba(124, 255, 77, 0.42);
+}
+
 .copy-toast {
   position: fixed;
   left: 50%;
