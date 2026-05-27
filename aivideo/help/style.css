@@ -162,22 +162,6 @@
   overflow: hidden;
 }
 
-.faq-panel::after {
-  position: absolute;
-  left: 50%;
-  bottom: 26px;
-  width: 190px;
-  height: 90px;
-  border-radius: 38px;
-  background:
-    radial-gradient(circle at 36% 50%, #fff 0 6px, transparent 7px),
-    radial-gradient(circle at 50% 50%, #fff 0 6px, transparent 7px),
-    radial-gradient(circle at 64% 50%, #fff 0 6px, transparent 7px),
-    linear-gradient(135deg, rgba(91, 132, 255, 0.32), rgba(174, 186, 255, 0.18));
-  content: "";
-  transform: translateX(-50%);
-}
-
 .faq-item {
   margin-bottom: 20px;
   padding: 22px 24px;
