@@ -8,7 +8,6 @@
       content="万能AI ChatGPT Plus 独立独享账号，一站式零门槛服务，到手即用，支持 1 对 1 指导。"
     />
     <title>ChatGPT Plus 独立独享账号 - 万能AI</title>
-    <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="plus-page">
@@ -176,6 +175,53 @@
         <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">备案号：蜀ICP备2026027374号</a>
       </footer>
     </main>
-    <script src="../copy.js"></script>
+    <script>
+      (function () {
+        function showToast(message) {
+          var toast = document.querySelector(".copy-toast");
+          if (!toast) {
+            toast = document.createElement("div");
+            toast.className = "copy-toast";
+            document.body.appendChild(toast);
+          }
+          toast.textContent = message;
+          toast.classList.add("is-visible");
+          window.clearTimeout(showToast.timer);
+          showToast.timer = window.setTimeout(function () {
+            toast.classList.remove("is-visible");
+          }, 1800);
+        }
+
+        document.addEventListener("click", function (event) {
+          var target = event.target.closest("[data-copy]");
+          if (!target) {
+            return;
+          }
+          var value = target.getAttribute("data-copy");
+          var label = target.getAttribute("data-copy-label") || "内容";
+          var done = function () {
+            showToast(label + "已复制：" + value);
+          };
+
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(value).then(done).catch(function () {
+              showToast("复制失败，请手动复制：" + value);
+            });
+            return;
+          }
+
+          var input = document.createElement("textarea");
+          input.value = value;
+          input.setAttribute("readonly", "");
+          input.style.position = "fixed";
+          input.style.left = "-999px";
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand("copy");
+          input.remove();
+          done();
+        });
+      })();
+    </script>
   </body>
 </html>
