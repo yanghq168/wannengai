@@ -1,14 +1,20 @@
 (function () {
   var rootPath = "/aivideo/";
   var transitionMs = 180;
+  var isAivideoHost = window.location.hostname.indexOf("aivideo.") === 0;
 
   function isAivideoUrl(url) {
-    return url.origin === window.location.origin && url.pathname.indexOf(rootPath) === 0;
+    if (url.origin !== window.location.origin) {
+      return false;
+    }
+
+    return isAivideoHost || url.pathname.indexOf(rootPath) === 0;
   }
 
   function getManagedStyles(doc, baseUrl) {
     return Array.prototype.slice.call(doc.querySelectorAll('link[rel="stylesheet"]')).filter(function (link) {
-      return new URL(link.getAttribute("href"), baseUrl || doc.baseURI).pathname.indexOf(rootPath) === 0;
+      var href = new URL(link.getAttribute("href"), baseUrl || doc.baseURI);
+      return href.origin === window.location.origin && (isAivideoHost || href.pathname.indexOf(rootPath) === 0);
     });
   }
 
@@ -59,15 +65,18 @@
 
     return syncStyles(nextDoc, url).then(function () {
       document.title = nextDoc.title;
-      currentMain.replaceWith(nextMain);
       nextMain.classList.add("is-page-entering");
+      currentMain.replaceWith(nextMain);
+      void nextMain.offsetWidth;
 
       if (shouldPush) {
         window.history.pushState({ aivideo: true }, "", url.href);
       }
 
       requestAnimationFrame(function () {
-        nextMain.classList.remove("is-page-entering");
+        requestAnimationFrame(function () {
+          nextMain.classList.remove("is-page-entering");
+        });
       });
 
       if (url.hash) {
