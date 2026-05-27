@@ -65,100 +65,85 @@
 .plus-brand {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   min-width: 0;
+  padding: 8px 14px 8px 10px;
+  border: 1px solid rgba(210, 250, 255, 0.58);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(11, 54, 159, 0.28));
+  box-shadow:
+    inset 0 1px 16px rgba(255, 255, 255, 0.18),
+    0 12px 28px rgba(4, 20, 88, 0.18);
 }
 
 .plus-brand-mark {
-  width: clamp(70px, 9vw, 116px);
+  width: clamp(54px, 6vw, 78px);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(206, 250, 255, 0.82);
-  border-radius: 28% 36% 30% 40%;
+  flex: 0 0 auto;
+  border: 1px solid rgba(221, 254, 255, 0.82);
+  border-radius: 30% 38% 32% 42%;
   background:
-    radial-gradient(circle at 58% 34%, rgba(255, 255, 255, 0.88), transparent 10%),
-    linear-gradient(135deg, #30a2ff 0%, #19e2d4 58%, #086ac6 100%);
+    radial-gradient(circle at 66% 24%, rgba(255, 255, 255, 0.95), transparent 10%),
+    linear-gradient(135deg, #0b6cff 0%, #20f0dc 58%, #0865d8 100%);
   box-shadow:
-    inset 0 0 20px rgba(255, 255, 255, 0.42),
-    0 0 32px rgba(35, 227, 230, 0.5),
-    0 12px 22px rgba(5, 18, 81, 0.28);
-  transform: rotate(-8deg);
+    inset 0 0 18px rgba(255, 255, 255, 0.38),
+    0 0 22px rgba(35, 227, 230, 0.45),
+    0 10px 18px rgba(5, 18, 81, 0.26);
   position: relative;
 }
 
-.plus-brand-mark::before,
-.plus-brand-mark::after {
+.plus-brand-mark::before {
   position: absolute;
-  width: 24px;
-  height: 3px;
-  border-radius: 999px;
-  background: #77f8ff;
-  box-shadow: 0 0 14px rgba(119, 248, 255, 0.82);
+  inset: 18%;
+  border-radius: 28% 40% 30% 42%;
+  background: rgba(4, 23, 87, 0.68);
+  box-shadow: inset 0 0 14px rgba(135, 247, 255, 0.2);
   content: "";
 }
 
-.plus-brand-mark::before {
-  left: -16px;
-  top: 60%;
-}
-
 .plus-brand-mark::after {
-  right: -16px;
-  top: 32%;
+  position: absolute;
+  inset: 31% 27% 31% 34%;
+  border-left: 7px solid #eaffff;
+  border-right: 7px solid #41f0e1;
+  border-radius: 999px;
+  filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.72));
+  content: "";
 }
 
 .plus-brand-mark span {
-  width: 58%;
-  aspect-ratio: 1;
+  width: 68%;
+  height: 68%;
   display: block;
-  border-radius: 26% 42% 30% 45%;
-  background: rgba(5, 18, 81, 0.82);
+  border-radius: 30% 42% 32% 45%;
+  border: 2px solid rgba(255, 255, 255, 0.55);
   clip-path: polygon(16% 10%, 84% 50%, 16% 90%);
   position: relative;
 }
 
-.plus-brand-mark span::before,
-.plus-brand-mark span::after {
-  position: absolute;
-  top: 41%;
-  width: 7px;
-  height: 21px;
-  border-radius: 8px;
-  background: #ecffff;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.92);
-  content: "";
-}
-
-.plus-brand-mark span::before {
-  left: 30%;
-}
-
-.plus-brand-mark span::after {
-  left: 50%;
-}
-
 .plus-brand-text {
   display: grid;
-  gap: 8px;
+  gap: 4px;
 }
 
 .plus-brand-text strong {
   color: #fff;
-  font-size: clamp(38px, 5vw, 72px);
-  line-height: 0.92;
+  font-size: clamp(26px, 3.5vw, 44px);
+  line-height: 0.96;
   font-weight: 950;
   text-shadow:
-    0 4px 0 rgba(0, 43, 144, 0.78),
-    0 0 24px rgba(255, 255, 255, 0.46);
+    0 3px 0 rgba(0, 43, 144, 0.64),
+    0 0 18px rgba(255, 255, 255, 0.42);
 }
 
 .plus-brand-text em {
   color: rgba(255, 255, 255, 0.9);
   font-style: normal;
-  font-size: clamp(16px, 2.2vw, 28px);
+  font-size: clamp(12px, 1.4vw, 16px);
   font-weight: 850;
-  letter-spacing: 6px;
+  letter-spacing: 3px;
 }
 
 .back-home {
@@ -240,6 +225,7 @@
 .plus-card {
   margin-top: 14px;
   padding: clamp(18px, 2.4vw, 26px);
+  min-width: 0;
 }
 
 .plus-card h2 {
@@ -408,6 +394,10 @@
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 14px;
   align-items: stretch;
+}
+
+.two-columns > * {
+  min-width: 0;
 }
 
 .price-table {
@@ -663,6 +653,21 @@
   overflow-wrap: anywhere;
 }
 
+.plus-record {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.plus-record a {
+  color: rgba(235, 251, 255, 0.86);
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.plus-record a:hover {
+  color: #fff;
+}
+
 @media (max-width: 980px) {
   .plus-title,
   .two-columns,
@@ -695,19 +700,20 @@
 
   .plus-brand {
     gap: 10px;
+    padding: 7px 9px;
   }
 
   .plus-brand-mark {
-    width: 54px;
+    width: 48px;
   }
 
   .plus-brand-text strong {
-    font-size: 30px;
+    font-size: 24px;
   }
 
   .plus-brand-text em {
-    font-size: 12px;
-    letter-spacing: 2px;
+    font-size: 10px;
+    letter-spacing: 1px;
   }
 
   .back-home {
